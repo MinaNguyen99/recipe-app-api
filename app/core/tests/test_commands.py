@@ -18,7 +18,9 @@ class CommandTest(SimpleTestCase):
     """Test commands."""
 
     def test_wait_for_db_ready(self, patched_check):
-        """Test waiting for db if db ready"""
+        """Test waiting for db if db ready
+        Ensure this mock check will call the right default database
+        """
         patched_check.return_value = True
 
         # execute code and check

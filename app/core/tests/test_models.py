@@ -19,7 +19,7 @@ class ModelTest(TestCase):
 
     def test_create_user_with_email_successful(self):
         """ Test creating a user with an email is successful"""
-        email = 'test@example.com'
+        email = 'tests@example.com'
         password = 'testpass123'
         user = get_user_model().object.create_user(
             email=email,
@@ -48,7 +48,7 @@ class ModelTest(TestCase):
     def test_create_superuser(self):
         """Test creating a superuser."""
         user = get_user_model().object.create_superuser(
-            'test@example.com',
+            'tests@example.com',
             'test123'
         )
         self.assertTrue(user.is_superuser)
@@ -57,7 +57,7 @@ class ModelTest(TestCase):
     def test_create_recipe(self):
         """Test creating a recipe is successful"""
         user = get_user_model().object.create_user(
-            'test@example.com',
+            'tests@example.com',
             'testpass123',
         )
         recipe = models.Recipe.objects.create(
@@ -70,7 +70,7 @@ class ModelTest(TestCase):
         self.assertEqual(str(recipe), recipe.title)
 
     def test_create_tag(self):
-        """Test creating a test succesful."""
+        """Test creating a tests succesful."""
         user = create_user()
         tag = models.Tag.objects.create(user=user, name='Tag1')
         self.assertEqual(str(tag), tag.name)

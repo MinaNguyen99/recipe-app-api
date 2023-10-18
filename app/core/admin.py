@@ -45,3 +45,4 @@ class UserAmin(BaseUserAdmin):
 
 admin.site.register(models.User, UserAmin)
 admin.site.register(models.Recipe)
+admin.site.register(models.Tag)

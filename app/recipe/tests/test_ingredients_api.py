@@ -16,7 +16,7 @@ INGREDIENT_URL = reverse('recipe:ingredient-list')
 
 def create_user(email='user@example.com', password='testpass123'):
     """Create and return user"""
-    return get_user_model().objects.create_user(email=email, password=password)
+    return get_user_model().object.create_user(email=email, password=password)
 
 
 class PublicIngredientTests(TestCase):
@@ -44,7 +44,7 @@ class PrivateIngredientTest(TestCase):
         Ingredient.objects.create(user=self.user, name='Vanilla')
 
         res = self.client.get(INGREDIENT_URL)
-        ingredients = Ingredient.objects.all().order('-name')
+        ingredients = Ingredient.objects.all().order_by('-name')
         serializer = IngredientSerializer(ingredients, many=True)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)

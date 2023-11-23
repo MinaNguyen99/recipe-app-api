@@ -20,11 +20,11 @@ services:
     image: postgres:13-alpine
     restart: always
     volumes:
-      - postgres-data:/var/lib/postgres/data
+      - postgres-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_NAME=${DB_NAME}
+      - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASS=${DB_PASS}
+      - POSTGRES_PASSWORD=${DB_PASS}
   proxy:
     build:
       context: ./proxy
